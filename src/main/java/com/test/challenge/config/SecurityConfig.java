@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -19,7 +20,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-//@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig {
     private final UserDetailsServiceImp userDetailsServiceImp;
 
@@ -72,11 +73,9 @@ public class SecurityConfig {
         }*/
 
 
-    String[] WHITE_LIST_URL = {
-            "/api/auth/**",
-            "/api/users/generate/**",
-            "/api/users/batch/**",
-            "/h2-console/**"
+    private static final String[] WHITE_LIST_URL = {
+
+            "/api/**",
     };
 
     @Bean

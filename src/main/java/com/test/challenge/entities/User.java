@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -27,7 +28,7 @@ public class User implements UserDetails {
 
     private String firstName;
     private String lastName;
-    private LocalDate birthDate;
+    private Date birthDate;
     private String city;
     private String country;
     private String avatar;
